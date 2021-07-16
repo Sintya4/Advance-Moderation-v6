@@ -1,0 +1,10 @@
+[
+	{
+		"question": "What is the modt popular code language?",
+		"answers": ["py", "python"]
+	},
+	{
+		"question": "How many letters are there in the alphabet?",
+		"answers": ["26", "twenty-six", "twenty six", "twentysix"]
+	}
+]

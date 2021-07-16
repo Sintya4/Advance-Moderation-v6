@@ -1,0 +1,49 @@
+const channels = require('../database/whitelist/channels.json');
+const users = require('../database/whitelist/users.json');
+const fs  = require('fs')
+
+module.exports.config = {
+    name: "whitelist",
+    description: 'Whitelist a user',
+    group: 'config',
+    usage: '.whitelist add [@user] | .whitelist remove [@user]',
+    example: '.whitelist add @Slayer | .whitelist remove @Slayer'
+    ,botperms: ["EMBED_LINKS"]
+}
+
+module.exports.run = async(client, message, args) => {
+    if (message.author.id !== message.guild.ownerID) return message.channel.send(client.noperms);
+
+    if (!args[0]) return message.channel.send(client.main);
+
+    const types = [
+        'users',
+        'channels'
+    ]
+
+  ///  if (!types.includes(args[0])) return message.channel.send(client.main);
+
+        if (args[0] === 'add') {
+            
+            const user = message.mentions.users.last() ? message.mentions.users.last() : args[1];
+
+            if (!user) return message.channel.send(client.main);
+
+            let mm ;
+            try {
+            if (user === args[1]) mm = await message.guild.members.fetch(args[1]); else mm = await message.mentions.members.last();
+            } catch {
+
+            }
+            if (!mm) return message.channel.send(client.noMember);
+
+            
+
+       
+            let contents = await fs.promises.readFile("users.json");
+            let array = JSON.parse(contents);
+        
+
+            
+    }
+}

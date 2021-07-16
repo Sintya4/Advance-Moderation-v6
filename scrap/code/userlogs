@@ -1,0 +1,30 @@
+const userLogs = require('../database/userlogs.json')
+
+    if (!userLogs[mm.id]) {
+        userLogs[mm.id] = {};
+        fs.writeFile('./database/userlogs.json', JSON.stringify(userLogs), (err) => {
+ 
+        })
+        if (!userLogs[mm.id][message.guild.id]) {
+            userLogs[mm.id][message.guild.id] = {};
+            fs.writeFile('./database/userlogs.json', JSON.stringify(userLogs), (err) => {
+            
+            })
+        }
+    }
+ 
+    if (!userLogs[mm.id][message.guild.id].logs) {
+        userLogs[mm.id][message.guild.id] = {
+            logs: 0
+        };
+        fs.writeFile('./database/userlogs.json', JSON.stringify(userLogs), (err) => {
+            
+        })
+    }
+ 
+    userLogs[mm.id][message.guild.id].logs++
+ 
+ 
+       fs.writeFile('./database/userlogs.json', JSON.stringify(userLogs), (err) => {
+            
+        })

@@ -1,0 +1,22 @@
+                  const ee = new MessageEmbed()
+                .setColor(client.color)
+                .addFields(
+                    {name: '**Name:**', value: CmdHelpName},
+                    {name: "**Description:**", value: cmdHelpDesc},
+                    {name: "**Aliases:**", value: pu.config.aliases.join(', ') || "None"},
+                    {name: "**Group:**", value: pu.config.group},
+                    {name: "**Permissions:**", value: pu.config.permissions.join(', ') || "None"},
+                    {name: "**Usage:**", value: pu.config.usage},
+                    {name: "**Example:**", value: pu.config.example || "None"}
+                )
+                return await message.channel.send(ee)
+                 
+**Name:** ${CmdHelpName}
+**Description:** ${cmdHelpDesc}
+**Aliases:** ${pu.config.aliases.join(", ")}
+**Group:** ${pu.config.group}
+**Permissions:** ${pu.config.permissions.join(', ')}
+**Usage:** ${pu.config.usage}
+**Example:** ${pu.config.example || "None"}
+
+                
